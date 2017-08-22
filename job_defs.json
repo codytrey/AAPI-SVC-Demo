@@ -1,0 +1,29 @@
+{
+	"Defaults": {
+		"Application": "AAPI",
+		"SubApplication": "Demo",
+		"RunAs": "Administrator",
+		"Host": "w8k-64-cbelcher",
+		"Job": {
+			"ActionIfFailure" : {
+				"Type": "If",
+				"CompletionStatus": "NOTOK",
+				"mailToTeam": {
+					"Type": "Mail",
+					"Message": "%%JOBNAME failed",
+					"To": "team@mycomp.com"
+				}
+			}
+		}
+	},
+	"AutomationAPI-SVC-Demo": {
+		"Type": "Folder",
+		"Comment": "First job flow managed in Git repository",
+		"ScriptJob": {
+			"Type": "Job:Script",
+			"FilePath": "C:\\temp\\",
+			"FileName": "factorial.py",
+			"Arguments":["7"]
+		}
+	}
+}
